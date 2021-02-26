@@ -11,31 +11,48 @@
 
 <body>
 
-  <!-- link to highscores.html file -->
-  <div class="highscores"><a href="highscores.html"></a>View Highscores</div>
-
-  <div class="timer">Time: <span class="countdown">0</span>
-
-    <div class="container">
-      <div class="begin-quiz">
-        <h1>Coding Quiz Challenge</h1>
-
-        <h2>Instructions:</h2>
-
-        <p>Answer each question to the best of your ability. This is a timed quiz.</p>
-
-        <button type="button" id="startButton">Start</button>
-      </div>
-
-      <div id="quizQuestions" class="hide">
-        <h2 id="actualQuestions"></h2>
-        <!-- class for styling and id for appending -->
-        <div id="choiceBtns" class="choices"></div>
-
-
-      </div>
-
+  <header>
+    <!-- link to highscores.html file -->
+    <div class="highscores">
+      <a href="highscores.html">View Highscores</a>
     </div>
-    <script src="script.js"></script>
+
+    <div class="timer">
+      Time: <span id="countdown">0</span>
+    </div>
+  </header>
+
+  <section id="titleSection" class="show">
+      <h1>Coding Quiz Challenge</h1>
+
+      <p>Answer each question to the best of your ability. This is a timed quiz. Each incorrect answer will deduct 10 seconds from the remaining time.</p>
+
+      <button type="button" id="startButton">Start</button>
+  </section>
+
+  <section id="quizQuestions" class="hide">
+    <h2 id="questionTitle"></h2>
+      <!-- class for styling and id for appending -->
+      <div id="choiceBtns" class="choices">
+      </div>
+      <div id="feedback" class="feedbackHide">
+      </div>
+  </section>
+
+  <section id="highScoreSection" class="hide">
+    <div id="highScore">
+      <h2>Complete!</h2>
+      <h3>Your final Score is <span id="finalScore">0</span></h3>
+      <label for="initialsArea">Enter Initials:</label>
+      <input type="text" name="initialsArea" maxlength="4" id="initials">
+      <button id=submitButton type=submit>Submit</button>
+    </div>
+
+
+
+
+  </section>
+
+  <script src="script.js"></script>
 
 </body>
