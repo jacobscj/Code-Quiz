@@ -1,46 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets./style.css" />
-  </head>
-  
-  <body>
-  
-  <h1>Coding Quiz</h1>
 
-  <h2>Instructions:</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="./assets./style.css" />
+</head>
 
-  <p>Answer each question to the best of your ability. This is a timed quiz.</p>
+<body>
 
-  <button type="button">Start</button>
+  <!-- link to highscores.html file -->
+  <div class="highscores"><a href="highscores.html"></a>View Highscores</div>
 
-  <div class="card">
+  <div class="timer">Time: <span class="countdown">0</span>
 
-      <div class="card-header">
+    <div class="container">
+      <div class="begin-quiz">
+        <h1>Coding Quiz Challenge</h1>
 
-          <h2>Question Number 1</h2>
+        <h2>Instructions:</h2>
+
+        <p>Answer each question to the best of your ability. This is a timed quiz.</p>
+
+        <button type="button" id="startButton">Start</button>
       </div>
 
-      <div class="card-question">
+      <div id="quizQuestions" class="hide">
+        <h2 id="actualQuestions"></h2>
+        <!-- class for styling and id for appending -->
+        <div id="choiceBtns" class="choices"></div>
 
-        <p>placeholder question: what color is the sky?</p>
+
       </div>
 
-      <div class="card-answer-options">
+    </div>
+    <script src="script.js"></script>
 
-        <ul>
-          <li> <button>placeholder answer</button></li>
-          <li> <button>placeholder answer</button></li>
-          <li> <button>placeholder answer</button></li>
-          <li> <button>placeholder answer</button></li>
-        </ul>
-      </div>
-  </div>
-
-  <script src="script.js"></script>
-
-  </body>
+</body>
