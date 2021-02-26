@@ -38,11 +38,23 @@ var timerId;
 // Grab DOM elements in variables
 var timeEl = document.querySelector("#countdown");
 var startBtn = document.querySelector("#startButton");
+var submitBtn = document.querySelector("#submitButton");
+var titleScreen = document.querySelector("#titleSection");
+var quizScreen = document.querySelector("#quizQuestions");
+var highScoreScreen = document.querySelector("#highScoreSection");
+var highScoreDisplay = document.querySelector("highscoreDisplay");
+var initialsEl = document.querySelector("#initials");
+var feedbackEl = document.querySelector("#feedback");
 
+var choicesEl = document.querySelector("#choiceBtns");
 
-function beginQuiz() {
-
-    countdownEl
+// 1 second taken off clock
+function tick() {
+    time--;
+    timeEl.textContent = time;
+    if (time <=o) {
+        quizEnd();
+    }
 }
 
 
