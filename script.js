@@ -1,5 +1,4 @@
 // question list in an array
-
 var qAndA = [
     {
         question: "Arrays in JavaScript can be used to store ______.",
@@ -19,7 +18,7 @@ var qAndA = [
     {
         question: "What attribute is used in html to decorate content?",
         choices: ["css", "class", "src", "style"],
-        andswer: "style"
+        answer: "style"
 
     },
     {
@@ -57,4 +56,109 @@ function tick() {
     }
 }
 
+// starting quiz by getting question and hiding/showing different sections
+function beginQuiz() {
+    titleScreen.setAttribute("class", "hide");
 
+    quizScreen.setAttribute("class", "show");
+
+    timerId = setInterval(tick, 1000);
+
+    timeEl.textContent = time;
+
+    getQuestion();
+}
+
+// pulling one question from array of questions to display on screen
+function getQuestion() {
+    var currentQuestion = qAndA[questionIndex];
+
+    var titleEl = document.getElementById("questionTitle");
+    titleEl.textContent = currentQuestion.question;
+
+    choicesEl.innerHTML = "";
+
+    currentQuestion.choices.forEach(function(choice, i) {
+        var choiceNode = document.createElement("button");
+        choiceNode.setAttribute("class", "choice");
+        choiceNode.setAttribute("value", choice);
+
+        choiceNode.textContent = i + 1 + ". " + choice;
+
+        choiceNode.onclick = questionClick;
+
+        choicesEl.appendChild(choiceNode);
+    });
+}
+
+function questionClick() {
+    if (this.value !== qAndA[questionIndex].answer) {
+        time -= 10;
+        
+        if (time < 0) {
+            time = 0;
+        }
+
+        timeEl.textContent = time;
+
+        feedbackEl.textContent = "Wrong!";
+    } else {
+        feedbackEl.textContent = "Correct!";
+    }
+
+    feedbackEl.setAttribute("class", "feedback");
+    setTimeout(function() {
+        feedbackEl.setAttribue("class", "feedbackHide");
+    }, 1000);
+
+    questionIndex++;
+
+    if (questionIndex === qAndA.length) {
+        quizEnd();
+    } else {
+        getQuestion();
+    }
+}
+
+function quizEnd() {
+    clearInterval(timerId);
+
+    var highscoreSectionEl = document.querySelector("#highScoreSection");
+    highscoreSectionEl.setAttribute("class", "show");
+
+    varFinalScoreEl = document.querySelector("#final-score");
+    varFinalScoreEl.textContent = time;
+
+    quizScreen.setAttribute("class", "hide");
+}
+
+function saveHighScore() {
+    var initials = initialsEl.value.trim();
+    
+    if (initials !== "") {
+        var highScores =
+            JSON.parse(window.localStorage.getItem(highScores)) || [];
+
+        var newScore = {
+            score: time,
+            initials: initials
+        };
+
+        highScores.push(newScore);
+        window.localStorage.setItem("highScores", JSON.stringify(highScores));
+
+        window.location.href = "highscores.html";
+    }
+}
+
+function checkForEnter(event) {
+    if(event.key=== "Enter") {
+        saveHighScore();
+    }
+}
+
+submitBtn.onclick = saveHighScore;
+
+startBtn.onclick = beginQuiz;
+
+initialsEl.onekeyup = checkForEnter;
