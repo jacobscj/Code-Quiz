@@ -1,3 +1,4 @@
+// pulling saved data from local storage to show high scores
 function printHighScores() {
     var highScores = JSON.parse(window.localStorage.getItem("highScores")) || [];
 
@@ -14,11 +15,13 @@ function printHighScores() {
     });
 }
 
+// when clear button clicked, remove high scores list
 function clearHighscores() {
-    window.localStorage.removeItem("highscores");
+    window.localStorage.removeItem("highScores");
     window.location.reload();
 }
 
-document.getElementById("clear").onclick -= clearHighscores;
+printHighScores();   
 
-printHighScores();
+document.getElementById("#clearBtn").onclick -= clearHighscores;
+

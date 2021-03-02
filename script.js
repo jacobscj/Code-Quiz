@@ -51,7 +51,7 @@ var choicesEl = document.querySelector("#choiceBtns");
 function tick() {
     time--;
     timeEl.textContent = time;
-    if (time <=o) {
+    if (time <=0) {
         quizEnd();
     }
 }
@@ -91,6 +91,7 @@ function getQuestion() {
     });
 }
 
+// when user clicks answer button, give feedback and go to next question
 function questionClick() {
     if (this.value !== qAndA[questionIndex].answer) {
         time -= 10;
@@ -107,8 +108,9 @@ function questionClick() {
     }
 
     feedbackEl.setAttribute("class", "feedback");
+
     setTimeout(function() {
-        feedbackEl.setAttribue("class", "feedbackHide");
+        feedbackEl.setAttribue("class", "hide"); 
     }, 1000);
 
     questionIndex++;
@@ -120,18 +122,20 @@ function questionClick() {
     }
 }
 
+// end quiz by expired time or running out of questions
 function quizEnd() {
     clearInterval(timerId);
 
     var highscoreSectionEl = document.querySelector("#highScoreSection");
     highscoreSectionEl.setAttribute("class", "show");
 
-    varFinalScoreEl = document.querySelector("#final-score");
+    varFinalScoreEl = document.querySelector("#finalScore");
     varFinalScoreEl.textContent = time;
 
     quizScreen.setAttribute("class", "hide");
 }
 
+// save highscore to local storage
 function saveHighScore() {
     var initials = initialsEl.value.trim();
     
@@ -151,6 +155,7 @@ function saveHighScore() {
     }
 }
 
+// if user hits enter key instead of submit key
 function checkForEnter(event) {
     if(event.key=== "Enter") {
         saveHighScore();

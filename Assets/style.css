@@ -1,5 +1,54 @@
-.card {
+* {
+    box-sizing: border-box;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+header {
+    background-color: salmon;
+    display: flex;
+    align-items: center;
     border: black 2px solid;
-    padding: 10px;
-    margin: 10px;
+}
+
+h1 {
+    font-size: 300%;
+    text-align: center;
+}
+
+#questionTitle {
+    font-size: 200%;
+    text-align: center;
+}
+
+.choices {
+    
+}
+
+p {
+    font-size: 200%;
+    border: black 2px solid;
+}
+
+.highscores {
+    display: flex;
+    font-size: 200%;
+    margin: 10px 20px 10px 20px;
+}
+
+.timer {
+    display: flex;
+    font-size: 200%;
+    margin: 5px 200px 5px 200px;
+}
+
+#startButton {
+    display: flex;
+    font-size: 150%;
 }
