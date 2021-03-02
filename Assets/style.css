@@ -13,13 +13,16 @@
 header {
     background-color: salmon;
     display: flex;
-    align-items: center;
     border: black 2px solid;
 }
 
 h1 {
     font-size: 300%;
     text-align: center;
+    background-color: salmon;
+    margin: 10px 300px;
+    border: black 2px solid;
+    justify-content: space-around;
 }
 
 #questionTitle {
@@ -27,13 +30,21 @@ h1 {
     text-align: center;
 }
 
+#choiceBtns {
+    text-align: center;
+}
+
+#feedback {
+    text-align: center;
+}
+
 .choices {
-    
+    font-size: 200%;
 }
 
 p {
-    font-size: 200%;
-    border: black 2px solid;
+    font-size: 120%;
+    text-align: center;
 }
 
 .highscores {
@@ -51,4 +62,23 @@ p {
 #startButton {
     display: flex;
     font-size: 150%;
+    margin: auto;
+    background-color: springgreen;
+    box-shadow: turquoise;
+}
+
+#highScore {
+    text-align: center;
+}
+
+#highscoreDisplay {
+    text-align: center;
+}
+
+#highscoreDisplay li {
+    text-align: center;
+}
+
+#highScores {
+    text-align: center;
 }
