@@ -31,7 +31,8 @@ h1 {
 }
 
 #choiceBtns {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #feedback {

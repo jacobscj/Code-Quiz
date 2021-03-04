@@ -23,5 +23,5 @@ function clearHighscores() {
 
 printHighScores();   
 
-document.getElementById("#clearBtn").onclick -= clearHighscores;
+document.getElementById("clearBtn").addEventListener("click", clearHighscores) 
 
